@@ -1,0 +1,78 @@
+   <header class="jumbotron hero-spacer">
+            <div class="header2">
+                <h1 align= 'center'>RAD, POP, COOL & <span class="clever">CLEVER</span></h1>
+        </div>
+        </header>
+
+
+
+
+    <div class="latest"><h1 class="latest2"><span class="glyphicon glyphicon-chevron-right forward "></span><span class="glyphicon glyphicon-chevron-right forward "></span>LATEST FEEDS<span class="glyphicon glyphicon-chevron-right forward"></span><span class="glyphicon glyphicon-chevron-right forward "></span> </h1></div>
+
+
+
+
+<div class="container">
+
+  
+<div class="row">
+            
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+                <% @post.each do |post| %>  
+                <!-- First Blog Post -->
+                <h2>
+                    <%= link_to truncate(post.title, length: 50, separator: ' '), post_path(post), class: 'post_link' %> 
+                </h2>
+                <p><span class="glyphicon glyphicon-time"></span><%= time_ago post.created_at %> </p>
+                <% if Setting.tag_visible? %>
+                <p>
+                <% post.tags.each do |tag| %>
+                    <div class="tag">
+                    <%= link_to tag.name, posts_path(tag: tag.name)%>
+                    </div>
+                <% end %>
+                </p>
+                <% end %>
+                <hr>
+                <%= image_tag post.avatar_url(:display), {:class => "img-responsive"} %>
+                <p><%= link_to 'Read More', post_path(post), {:class => "btn btn-danger", :role => "button" } %></p>
+                <hr>
+                <% end %>
+                <%= paginate @post %>
+            </div>
+ 
+
+
+
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                 <h4>Advertisment</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <!-- /.input-group -->
+                </div>
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                   <h4>Advertisment</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <!-- /.row -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Advertisment</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                </div>
+
+            </div>
+</div>
+</div>
+
+
+<%= render partial: 'nav/footer' %>
+

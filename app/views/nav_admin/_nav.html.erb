@@ -1,0 +1,32 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+         <p><%= link_to '.CLEVERLIT', posts_path, class: 'navbar-brand' %></p>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Posts', admin_posts_path %></li>
+          <li><%= link_to 'Moderators', admin_moderators_path %></li>
+          <li><%= link_to 'Tags', new_admin_tag_path %></li>
+          <li><%= link_to 'Comments', admin_comments_path %></li>
+          <li><%= link_to 'Visitors', admin_visitors_path %></li>
+          <li><%= link_to 'Messages', admin_messages_path %></li>
+          <li><%= link_to 'Notifications', admin_notifications_path %></li>
+          <li><%= link_to 'Dashboard', admin_dashboard_index_path %></li>
+          <li><%= link_to 'Setting', new_admin_setting_path %></li>
+          <li><%= link_to 'Log Out', logout_path %></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

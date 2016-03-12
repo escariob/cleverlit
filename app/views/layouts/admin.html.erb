@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clever Lit</title>
+    <link rel="icon" type="image/png" href="http://res.cloudinary.com/dtqzififb/image/upload/v1456229763/cleverlitC_kcsv53.png">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    
+    <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+    
+    <%= render partial: 'nav_admin/nav' %>
+
+    <%= yield %>
+
+</body>
+</html>

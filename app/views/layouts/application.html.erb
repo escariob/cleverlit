@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clever Lit</title>
+    <link rel="icon" type="image/png" href="">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+    <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    
+    <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+    
+    <%= render partial: 'nav/nav' %>
+    
+    <%= yield %>
+</body>
+</html>

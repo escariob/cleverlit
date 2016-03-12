@@ -1,0 +1,19 @@
+<div class="contact">
+
+
+    <%= simple_form_for @contact, :html => {:class => 'form-horizontal'} do |f| %>
+    <h5 align='justify'>Message us, we would like to hear from you. If you want to write an article just send us a message, we would gladly respond to you as soon as possible. Thank you!</h4>
+    <hr>
+    
+    <%= f.input :name, placeholder: 'Name', :required => true %>
+    <%= f.input :email, placeholder: 'Enter email', :required => true %>
+    <%= f.input :message, placeholder: 'Message', :as => :text %>
+    <div class= "hidden">
+      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+    </div>
+    <div>
+      </br>
+      <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

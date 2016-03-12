@@ -1,0 +1,24 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <p><%= link_to '.CLEVERLIT', posts_path, class: 'navbar-brand' %></p>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="link nav navbar-nav navbar-right">
+          <li><%= link_to 'Home', posts_path %></li>
+        <li><%= link_to 'Contact', new_contact_path %></li>
+        <li><%= link_to 'Login', login_path %></li>
+          <li>&nbsp; &nbsp; &nbsp; &nbsp; </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

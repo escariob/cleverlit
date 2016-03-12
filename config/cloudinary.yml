@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dtqzififb
+  api_key: '274526116696653'
+  api_secret: CELCK13jZm6itplGfs_70UU6_x0
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dtqzififb
+  api_key: '274526116696653'
+  api_secret: CELCK13jZm6itplGfs_70UU6_x0
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dtqzififb
+  api_key: '274526116696653'
+  api_secret: CELCK13jZm6itplGfs_70UU6_x0
+  enhance_image_tag: true
+  static_image_support: false

@@ -1,0 +1,40 @@
+<div class="form">
+<%= render 'validation_errors', object: @post %>
+
+<%= form_for [:admin, @post] do |f| %>
+    <p>
+        <%= f.label :title %></br>
+        <%= f.text_field :title %>
+    </p>
+    <p>
+        <%= f.label :Image %></br>
+        <%= f.file_field :avatar %>
+    </p>
+
+    <p>
+        <%= f.text_area :content, id: 'wysiwyg' %>
+        
+    </p>
+
+    <p>
+        <%= f.label :publish %></br>
+        <%= f.check_box :publish %>
+    </p>
+
+<p>
+    <%= f.select :tag_ids, Tag.all.collect {|t| [t.name, t.id]}, {prompt: 'Select Tag'}, multiple: :true %>
+</p>
+
+<%= f.submit %>
+<% end %>
+
+</div>
+<script>
+$('#wysiwyg').froalaEditor({
+    inlineMode: false,
+    minHeight: '300px',
+    buttons: ['bold', 'italic', 'underline', 'formatBlock', 'align',
+    'insertUnorderedList', 'insertOrderedList', 'outdent', 'indent',
+    'createLink', 'html'],
+})
+</script>

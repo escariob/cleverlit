@@ -1,0 +1,66 @@
+<h1>Dashboard</h1>
+<h2>Post</h2>
+<%= link_to 'Create New Post', new_admin_post_path, {:class => "btn btn-info", :role => "button" } %><br>
+<%= link_to 'List of Posts', admin_posts_path, {:class => "btn btn-info", :role => "button" }%>
+
+<table class="table table-bordered table-hover">
+    <thread>
+        <tr>
+            <th>title</th>
+            <th>replies</th>
+            <th>date</th>
+            <th>actions</th>
+        </tr>
+    </thread>
+    <tbody>
+        <% @post.each do |post| %>
+        <tr>
+            <td><%= truncate(post.title, length: 40, separator: '')%></td>
+            <td><%= post.comments.count %></td>
+            <td><%= time_ago post.created_at %></td>
+            <td>
+                <%= link_to 'edit', edit_admin_post_path(post) %>
+                <%= link_to 'view', admin_post_path(post) %>
+                <%= link_to 'delete', admin_post_path(post), method: :delete, data: {confirm: 'Are you sure?'} %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+<h2>Comments</h2>
+<%= link_to 'List all comments', admin_comments_path %>
+
+<% @comments.each do |comment| %>
+<p><%= comment.visitor.fullname %></p>
+<p><%= truncate(comment.message, length: 125, separator: '') %></p>
+<p><%= time_ago comment.created_at %></p>
+<hr>
+<% end %>
+
+<h2>Visitors</h2>
+<table class="table table-bordered table-hover">
+    <thread>
+        <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Created</th>
+            <th>Actions</th>
+        </tr>
+    </thread>
+    <tbody>
+        <% @visitors.each.with_index do |visitor, index| %>
+        <tr>
+            <td><%= index + 1 %></td>
+            <td><%= visitor.fullname %></td>
+            <td><%= visitor.email %></td>
+            <td><%= time_ago visitor.created_at %></td>
+            <td>
+                <%= link_to 'delete', admin_visitor_path(visitor), method: :delete, data: {confirm: 'Are you sure?'} %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
