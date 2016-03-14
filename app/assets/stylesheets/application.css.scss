@@ -48,19 +48,9 @@
 }
 
 .navbar-inverse .navbar-brand{
-  height: 50px;
-  font-size: 30px;
-    font-family: "Impact";
-    letter-spacing: 1px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(255, 99, 99);
+  padding: 0px;
+    height: 60px;
 }
-.navbar-inverse .navbar-brand:hover,
-.navbar-inverse .navbar-brand:focus {
-  color: #fff;
-    background-color: rgb(255, 99, 99);
-}
-
 
 .jumbotron{
     margin-top: 50px;
