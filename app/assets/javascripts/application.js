@@ -15,6 +15,9 @@
 //= require turbolinks
 //= require bootstrap
 //= require froala_editor.min.js
+//= require file.min.js
+//= require image.min.js
+//= require url.min.js
+//= require video.min.js
 //= require_tree .
-
 

@@ -31,10 +31,11 @@
 </div>
 <script>
 $('#wysiwyg').froalaEditor({
-    inlineMode: false,
-    minHeight: '300px',
-    buttons: ['bold', 'italic', 'underline', 'formatBlock', 'align',
-    'insertUnorderedList', 'insertOrderedList', 'outdent', 'indent',
-    'createLink', 'html'],
+    toolbarInline: false,
+    heightMin: '300px',
+    toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'align',
+    'formatOL', 'formatUL', 'outdent', 'indent',
+    'insertLink', 'html', 'insertImage', 'insertVideo'],
+    videoInsertButtons: ['videoByURL', 'videoEmbed'],
 })
 </script>
