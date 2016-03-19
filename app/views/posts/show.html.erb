@@ -1,3 +1,6 @@
+<% content_for :title, @post.title %>
+<% content_for :description, @post.content %>
+
 <div class="content_show">
 
  <div class="col-md-8">
@@ -5,7 +8,10 @@
                 <h2>
                    <%= @post.title %> 
                 </h2>
-                <p><span class="glyphicon glyphicon-time"></span><%= time_ago @post.created_at %> </p>
+                <p><span class="glyphicon glyphicon-time"></span><%= time_ago @post.created_at %>
+                    
+     
+                </p>
                 <% if Setting.tag_visible? %>
                 <p>
                 <% @post.tags.each do |tag| %>
