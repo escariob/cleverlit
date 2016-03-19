@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220084825) do
+ActiveRecord::Schema.define(version: 20160319020923) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "message",    limit: 65535
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(version: 20160220084825) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["visitor_id"], name: "index_comments_on_visitor_id", using: :btree
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",           limit: 255, null: false
+    t.integer  "sluggable_id",   limit: 4,   null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope",          limit: 255
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.text     "content",    limit: 65535
@@ -75,9 +88,11 @@ ActiveRecord::Schema.define(version: 20160220084825) do
     t.datetime "image_updated_at"
     t.string   "avatar",             limit: 255
     t.text     "file",               limit: 65535
+    t.string   "slug",               limit: 255
   end
 
   add_index "posts", ["moderator_id"], name: "index_posts_on_moderator_id", using: :btree
+  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "site_name",          limit: 255

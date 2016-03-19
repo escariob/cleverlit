@@ -19,5 +19,6 @@ class Post < ActiveRecord::Base
         includes(:tags).where(publish: true, tags: {name: param_tag}).order(id: :desc)
     end
     
-    
+    extend FriendlyId
+    friendly_id :title, use: :slugged
 end

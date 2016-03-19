@@ -34,6 +34,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'mail_form'
 gem 'simple_form'
+gem 'friendly_id', '~> 5.1'
 # Use Unicorn as the app server
 # gem 'unicorn'
 #gem "paperclip", "~> 4.3"
